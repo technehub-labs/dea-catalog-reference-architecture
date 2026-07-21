@@ -1,0 +1,100 @@
+# DERA Stakeholder Viewpoints
+
+viewpoints:
+  - stakeholder: ChiefArchitect
+    role: Chief Architect
+    description: >
+      The Chief Architect uses DERA to govern cross-domain coherence and ensure the
+      engagement programme stays aligned with the enterprise architecture strategy.
+    concern: >
+      Is the DEA adoption programme on track? Are all layers properly sequenced?
+      Is the metamodel being respected across all catalogs?
+    relevant_phases: [1, 2, 3, 4]
+    key_deliverables:
+      - Metamodel CI pipeline (Phase 1)
+      - Catalog relationship map (Phase 2)
+      - Stakeholder viewpoint summary (Phase 3)
+      - Governance health report (Phase 4)
+    entities_of_interest:
+      - ReferenceModel
+      - ArchitecturePattern
+      - Standard
+      - Principle
+    frequency: Monthly
+
+  - stakeholder: SolutionsArchitect
+    role: Solutions Architect
+    description: >
+      The Solutions Architect uses DERA to plan individual solution architectures,
+      selecting patterns and standards from the seeded catalogs for each engagement.
+    concern: >
+      Which patterns and standards apply to my current solution? How do they relate
+      to the engagement's principles? What is the correct sequence of activities?
+    relevant_phases: [2, 3]
+    key_deliverables:
+      - Pattern-to-principle linkage map (Phase 2)
+      - Component spec generated from catalog (Phase 3)
+    entities_of_interest:
+      - ArchitecturePattern
+      - Standard
+      - SolutionComponent
+      - BusinessService
+    frequency: Per engagement
+
+  - stakeholder: CTO
+    role: Chief Technology Officer
+    description: >
+      The CTO uses DERA to understand the scope and investment required for the
+      DEA framework adoption, and to track programme health through the viewpoints.
+    concern: >
+      What is the four-phase timeline and investment? What does each phase deliver?
+      Is the programme on track? What are the key risks?
+    relevant_phases: [1, 4]
+    key_deliverables:
+      - Phase 1 exit review presentation
+      - Phase 4 governance activation summary
+      - DERA maturity assessment scores (before/after)
+    entities_of_interest:
+      - ReferenceModel
+      - Principle
+      - Metric
+    frequency: Quarterly
+
+  - stakeholder: PlatformEngineer
+    role: Platform / DevOps Engineer
+    description: >
+      The Platform Engineer uses DERA to deploy and operate the L2 tooling layer,
+      including the CLI, web viewer, and CI/CD pipelines.
+    concern: >
+      How do I deploy the DEA tooling stack? What are the configuration requirements?
+      How do I publish SBOMs and maintain the release pipeline?
+    relevant_phases: [1, 3, 4]
+    key_deliverables:
+      - dea-cli installation and configuration guide
+      - dea-web-viewer deployment (Phase 3)
+      - SBOM pipeline (Phase 4)
+      - Branch protection audit (Phase 4)
+    entities_of_interest:
+      - SolutionComponent
+      - Technology
+      - Standard
+    frequency: Per deployment / Monthly SBOM refresh
+
+  - stakeholder: BusinessArchitect
+    role: Business Architect
+    description: >
+      The Business Architect uses DERA to map business capabilities and processes
+      to the architecture framework, and to ensure the framework reflects business priorities.
+    concern: >
+      How do business capabilities map to solution components? Which processes
+      are being automated and in what sequence?
+    relevant_phases: [2]
+    key_deliverables:
+      - Capability-to-pattern mapping (Phase 2)
+      - Business metric definitions (Phase 2)
+    entities_of_interest:
+      - Capability
+      - Process
+      - BusinessService
+      - Metric
+    frequency: Per engagement

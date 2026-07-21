@@ -1,0 +1,109 @@
+# DERA — Digital Enterprise Reference Architecture
+# Version-indexed entry point for this catalog
+
+catalog:
+  name: Digital Enterprise Reference Architecture
+  abbreviation: DERA
+  id: dea:reference-dera
+  version: "1.0.0-alpha"
+  status: active
+  metamodel_version: "^0.1.0"
+
+  description: >
+    Canonical delivery blueprint for adopting the TechNeHub Labs DEA framework.
+    Assembles all L1 reference catalogs into a coherent end-to-end adoption programme.
+
+  repository: https://github.com/technehub-labs/dea-catalog-reference-architecture
+
+  owner: TechNeHub Labs
+  license: MIT
+
+  relationships:
+    - source_id: dea:reference-dera
+      target_id: dea:principle-api-first
+      relationship_type: references
+      description: DERA phases are driven by the API-first architecture principle
+    - source_id: dea:reference-dera
+      target_id: dea:principle-zero-trust
+      relationship_type: references
+      description: DERA governance is founded on Zero Trust security principles
+    - source_id: dea:reference-dera
+      target_id: dea:pattern-cqrs
+      relationship_type: applies
+      description: Phase 3 tooling applies CQRS for command/query separation in the catalog API
+    - source_id: dea:reference-dera
+      target_id: dea:reference-model-digital-platform
+      relationship_type: references
+      description: DERA uses the Digital Platform reference model as the canonical delivery target
+
+  engagement_styles:
+    - id: discovery
+      name: Discovery
+      description: Single domain, 3–5 patterns, 1–2 standards. 2–4 weeks. Phases 1–2.
+      phases: [1, 2]
+    - id: blueprint
+      name: Blueprint
+      description: Full enterprise, all catalogs, L2 tooling. 8–12 weeks. Phases 1–4.
+      phases: [1, 2, 3, 4]
+    - id: embedding
+      name: Embedding
+      description: Ongoing programme integrated with agile delivery. Continuous. Phases 1–4 cycling.
+      phases: [1, 2, 3, 4]
+
+  phases:
+    - id: phase-1
+      name: Foundation
+      order: 1
+      layers: [L0]
+      focus: Establish the metamodel as single source of truth
+      exit_criteria:
+        - CI pipeline is green
+        - Entity subset agreed and committed
+        - Branch protection active
+        - Team onboarded (≥2 contributors)
+    - id: phase-2
+      name: Catalog Seeding
+      order: 2
+      layers: [L1]
+      focus: Populate reference catalogs with engagement-scoped entries
+      exit_criteria:
+        - All scoped catalogs seeded
+        - Cross-catalog relationships declared
+        - dea validate passes for all entries
+    - id: phase-3
+      name: Tooling Enablement
+      order: 3
+      layers: [L2]
+      focus: Enable practitioners to work with seeded catalogs via CLI and web viewer
+      exit_criteria:
+        - Viewpoints generated for all stakeholder roles
+        - Artifact pipeline running (ADR, component spec)
+        - Web viewer deployed (Blueprint) or CLI accessible (Discovery)
+    - id: phase-4
+      name: Governance Activation
+      order: 4
+      layers: [L3]
+      focus: Put operational governance model in place
+      exit_criteria:
+        - Branch protection active on all repos
+        - CODEOWNERS per layer configured
+        - SBOM published for all L2 packages
+        - CONTRIBUTING.md published and linked
+        - GitHub Discussions active
+
+  content:
+    - path: DERA/v1-alpha/model.md
+      type: ReferenceModel
+      description: Canonical delivery blueprint — the four-phase model
+    - path: DERA/v1-alpha/engagement-playbook.md
+      type: Documentation
+      description: Step-by-step guide for running a DERA engagement
+    - path: DERA/v1-alpha/assessment-checklist.md
+      type: Documentation
+      description: Maturity self-assessment template with scoring rubric
+
+  tags:
+    - reference-architecture
+    - delivery-blueprint
+    - engagement-model
+    - dera

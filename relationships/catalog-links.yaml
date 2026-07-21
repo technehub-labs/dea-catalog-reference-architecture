@@ -1,0 +1,154 @@
+# Catalog Cross-References
+# Declares typed relationships from DERA to other L1 catalogs
+
+relationships:
+  - source_id: dea:reference-dera
+    target_id: dea:reference-dera
+    relationship_type: self-references
+    description: DERA references itself as the top-level assembly point
+
+  # Principles
+  - source_id: dea:reference-dera
+    target_id: dea:principle-api-first
+    relationship_type: references
+    description: DERA Phase 2 catalog seeding is governed by the API-first principle
+    phase: phase-2
+
+  - source_id: dea:reference-dera
+    target_id: dea:principle-zero-trust
+    relationship_type: references
+    description: DERA Phase 4 governance activation applies Zero Trust principles
+    phase: phase-4
+
+  - source_id: dea:reference-dera
+    target_id: dea:principle-cqrs
+    relationship_type: references
+    description: DERA tooling enablement (Phase 3) is implemented using CQRS patterns
+    phase: phase-3
+
+  - source_id: dea:reference-dera
+    target_id: dea:principle-evolutionary
+    relationship_type: references
+    description: DERA Embedding style follows an evolutionary delivery approach
+    phase: continuous
+
+  # Patterns
+  - source_id: dea:reference-dera
+    target_id: dea:pattern-cqrs
+    relationship_type: applies
+    description: Phase 3 tooling applies CQRS for catalog data management
+    phase: phase-3
+
+  - source_id: dea:reference-dera
+    target_id: dea:pattern-strangler-fig
+    relationship_type: applies
+    description: DERA supports incremental adoption via the Strangler Fig pattern — replace incrementally rather than big-bang
+    phase: continuous
+
+  - source_id: dea:reference-dera
+    target_id: dea:pattern-api-gateway
+    relationship_type: applies
+    description: dea-cli and dea-web-viewer are exposed via an API Gateway pattern
+    phase: phase-3
+
+  - source_id: dea:reference-dera
+    target_id: dea:pattern-circuit-breaker
+    relationship_type: applies
+    description: Catalog validation CI uses circuit breaker to halt pipelines on cascading validation failures
+    phase: phase-1
+
+  # Standards
+  - source_id: dea:reference-dera
+    target_id: dea:standard-rest
+    relationship_type: conforms-to
+    description: All catalog API implementations conform to REST standards
+    phase: phase-3
+
+  - source_id: dea:reference-dera
+    target_id: dea:standard-oauth2
+    relationship_type: conforms-to
+    description: dea-web-viewer authentication conforms to OAuth 2.0
+    phase: phase-3
+
+  - source_id: dea:reference-dera
+    target_id: dea:standard-openapi
+    relationship_type: conforms-to
+    description: All dea-cli and web viewer APIs are specified with OpenAPI 3.x
+    phase: phase-3
+
+  # Reference Models
+  - source_id: dea:reference-dera
+    target_id: dea:reference-model-digital-platform
+    relationship_type: references
+    description: DERA uses the Digital Platform reference model as the canonical delivery target
+    phase: phase-2
+
+  - source_id: dea:reference-dera
+    target_id: dea:reference-model-integration-hub
+    relationship_type: references
+    description: DERA Phase 2 uses Integration Hub model for cross-system integration patterns
+    phase: phase-2
+
+  # Metrics
+  - source_id: dea:reference-dera
+    target_id: dea:metric-catalog-coverage
+    relationship_type: measured-by
+    description: Phase 2 progress measured by catalog coverage (entities seeded / total scoped)
+    phase: phase-2
+
+  - source_id: dea:reference-dera
+    target_id: dea:metric-pattern-adoption
+    relationship_type: measured-by
+    description: Phase 3 effectiveness measured by pattern adoption rate across solutions
+    phase: phase-3
+
+  - source_id: dea:reference-dera
+    target_id: dea:metric-architecture-health
+    relationship_type: measured-by
+    description: Phase 4 governance health measured by quarterly architecture health score
+    phase: phase-4
+
+  # Ontologies
+  - source_id: dea:reference-dera
+    target_id: dea:ontology-dea-core
+    relationship_type: formalised-by
+    description: DERA's entity model is formalised in the dea-core OWL ontology
+    phase: phase-1
+
+  # Glossary
+  - source_id: dea:reference-dera
+    target_id: dea:glossary-entity
+    relationship_type: uses
+    description: DERA uses the metamodel entity definition from the glossary
+    phase: phase-1
+
+  - source_id: dea:reference-dera
+    target_id: dea:glossary-viewpoint
+    relationship_type: uses
+    description: DERA stakeholder viewpoints use the glossary viewpoint definition
+    phase: phase-3
+
+  # Taxonomy
+  - source_id: dea:reference-dera
+    target_id: dea:taxonomy-layer-l0
+    relationship_type: uses
+    description: DERA Phase 1 taxonomy uses L0 (Metamodel) as the foundational layer
+    phase: phase-1
+
+  - source_id: dea:reference-dera
+    target_id: dea:taxonomy-layer-l1
+    relationship_type: uses
+    description: DERA Phase 2 taxonomy uses L1 (Reference Catalogs) as the content layer
+    phase: phase-2
+
+  - source_id: dea:reference-dera
+    target_id: dea:taxonomy-layer-l2
+    relationship_type: uses
+    description: DERA Phase 3 taxonomy uses L2 (Tooling) as the enablement layer
+    phase: phase-3
+
+  - source_id: dea:reference-dera
+    target_id: dea:taxonomy-layer-l3
+    relationship_type: uses
+    description: DERA Phase 4 taxonomy uses L3 (Governance) as the operational layer
+    phase: phase-4
