@@ -1,6 +1,8 @@
 # DERA v1-alpha — Digital Enterprise Reference Architecture
 
 > Status: **Alpha** — Draft for review and early adoption
+>
+> **Terminology note (2026-08-16):** catalog names follow OpenDEAM v0.4.0 (ADR-0004) — Principle → **Tenet** (`dea-catalog-tenets`), Standard → **Guardrail** (`dea-catalog-guardrails`), Glossary/Taxonomy → **Concept** (`dea-catalog-concepts`), Reference Model → **Blueprint** (`dea-catalog-blueprints`). Some prose below still uses the pre-ADR-0004 vocabulary; repo links are current. Entity counts reference the live root model (`dea-architecture-framework`, OpenDEAM v0.5.0 — 53 first-level entities).
 
 ---
 
@@ -47,12 +49,12 @@ The metamodel is the most foundational investment. Every catalog entry, every re
 With the metamodel in place, the catalogs become the primary deliverable. Each catalog is seeded with entries that are relevant to the engagement domain. Entries are typed against the metamodel and linked to each other through typed relationships.
 
 **Key activities:**
-- Seed `dea-catalog-principles` — select principles that govern the engagement (e.g., API-first, Zero Trust)
-- Seed `dea-catalog-standards` — enumerate the technology and architectural standards that apply
+- Seed `dea-catalog-tenets` — select principles that govern the engagement (e.g., API-first, Zero Trust)
+- Seed `dea-catalog-guardrails` — enumerate the technology and architectural standards that apply
 - Seed `dea-catalog-patterns` — select patterns that are relevant to the solution architecture
-- Seed `dea-catalog-reference-models` — document the reference architecture for the domain
+- Seed `dea-catalog-blueprints` — document the reference architecture for the domain
 - Seed `dea-catalog-metrics` — define how success will be measured
-- Seed `dea-catalog-glossary` — agree on terminology for the engagement
+- Seed `dea-catalog-concepts` — agree on terminology for the engagement
 - Establish cross-catalog relationships (Pattern → Principle, Standard → Pattern)
 - Run `dea-cli validate` across all entries and resolve all errors
 
@@ -138,12 +140,12 @@ DERA is the assembling reference model. Its value is in defining how the other c
 
 ```
 dea-catalog-reference-architecture
-    │ references         dea-catalog-principles
+    │ references         dea-catalog-tenets
     │ applies            dea-catalog-patterns
-    │ conforms-to        dea-catalog-standards
-    │ references         dea-catalog-reference-models
+    │ conforms-to        dea-catalog-guardrails
+    │ references         dea-catalog-blueprints
     │ measured-by        dea-catalog-metrics
-    │ uses               dea-catalog-taxonomy
+    │ uses               dea-catalog-concepts
     │ formalised-by      dea-catalog-ontologies
     │ expressed-in        dea-metamodel (L0)
     │ operationalised-by dea-cli, dea-scripts (L2)

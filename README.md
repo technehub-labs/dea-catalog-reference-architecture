@@ -10,7 +10,9 @@
 
 ## Overview
 
-The Digital Enterprise Reference Architecture (DERA) is the synthesising L1 catalog that assembles all other DEA framework catalogs into a coherent, deliverable end-to-end blueprint. Where individual catalogs define *what* the framework contains (patterns, principles, standards), DERA defines *how the pieces fit together* — which layers reference which, in what order, for what kind of engagement.
+The Digital Enterprise Reference Architecture (DERA) is the synthesising L1 catalog that assembles all other DEA framework catalogs into a coherent, deliverable end-to-end blueprint. Where individual catalogs define *what* the framework contains (patterns, tenets, guardrails), DERA defines *how the pieces fit together* — which layers reference which, in what order, for what kind of engagement.
+
+> Naming follows OpenDEAM v0.4.0 (ADR-0004): Principle → **Tenet**, Standard → **Guardrail**, Glossary Term + Taxonomy Node → **Concept**, Reference Model → **Blueprint**.
 
 DERA is the reference model that enterprise architects, solution architects, and technology leaders use to plan a DEA adoption programme: scoping the engagement, sequencing the deliverables, assigning ownership by layer, and measuring progress.
 
@@ -22,17 +24,16 @@ DERA is the reference model that enterprise architects, solution architects, and
 L0 — Metamodel
   ↕  Defines entities and relationships used by all L1 catalogs
 L1 — Reference Catalogs
-  ├── Principles        (dea-catalog-principles)
-  ├── Standards        (dea-catalog-standards)
+  ├── Tenets           (dea-catalog-tenets)
+  ├── Guardrails       (dea-catalog-guardrails)
   ├── Patterns         (dea-catalog-patterns)
-  ├── Reference Models  ← other L1 catalogs (domain-specific)
+  ├── Blueprints       (dea-catalog-blueprints)
   ├── Metrics          (dea-catalog-metrics)
-  ├── Glossary         (dea-catalog-glossary)
-  ├── Taxonomy         (dea-catalog-taxonomy)
+  ├── Concepts         (dea-catalog-concepts)
   ├── Ontologies       (dea-catalog-ontologies)
   └── Reference Architecture ← DERA (this repo) — the assembling blueprint
 L2 — Tooling           (dea-cli, dea-scripts, dea-code-gen, dea-web-viewer)
-L3 — Governance        (branch strategy, SBOM, MIT licensing, contributing)
+L3 — Governance        (branch strategy, SBOM, Apache 2.0 licensing, contributing)
 ```
 
 ---
@@ -80,16 +81,16 @@ Establish the metamodel as the single source of truth for all entity definitions
 Populate the reference catalogs for the engagement scope.
 
 **Activities:**
-- Seed Principles (from `dea-catalog-principles`)
-- Seed Standards (from `dea-catalog-standards`)
+- Seed Tenets (from `dea-catalog-tenets`)
+- Seed Guardrails (from `dea-catalog-guardrails`)
 - Seed Architecture Patterns (from `dea-catalog-patterns`)
-- Seed Reference Models (from `dea-catalog-reference-models`)
+- Seed Blueprints (from `dea-catalog-blueprints`)
 - Seed Metrics (from `dea-catalog-metrics`)
-- Seed Glossary terms (from `dea-catalog-glossary`)
+- Seed Concepts (from `dea-catalog-concepts`)
 
 **Deliverables:**
 - All scoped catalogs seeded with initial entries
-- Cross-catalog relationships established (Pattern → Principle, Standard → Pattern, etc.)
+- Cross-catalog relationships established (Tenet → Guardrail `informs`, Blueprint → Pattern `composed of`, etc.)
 - `dea-cli validate` passing for all entries
 
 ---
@@ -146,11 +147,11 @@ DERA references and composes all other L1 catalogs. Key relationships:
 
 | Relationship | Target Catalog | Description |
 |-------------|---------------|-------------|
-| `references` | `dea-catalog-principles` | DERA phases are driven by architecture principles |
+| `references` | `dea-catalog-tenets` | DERA phases are driven by architecture tenets |
 | `applies` | `dea-catalog-patterns` | Each phase applies specific patterns from the catalog |
-| `conforms-to` | `dea-catalog-standards` | DERA delivery conform to named standards |
+| `conforms-to` | `dea-catalog-guardrails` | DERA delivery conforms to enforced guardrails |
 | `measured-by` | `dea-catalog-metrics` | Phase completion measured by catalog metrics |
-| `defines` | `dea-catalog-taxonomy` | DERA defines the taxonomy of engagement domains |
+| `defines` | `dea-catalog-concepts` | DERA phases link to the canonical concept graph |
 | `formalises` | `dea-catalog-ontologies` | DERA's entity model formalised in OWL/RDF |
 
 ---

@@ -1,6 +1,8 @@
 # Engagement Playbook
 
 > How to run a DEA adoption programme using DERA.
+>
+> **Terminology note (2026-08-16):** catalog names follow OpenDEAM v0.4.0 (ADR-0004) — Principle → **Tenet**, Standard → **Guardrail**, Glossary/Taxonomy → **Concept**, Reference Model → **Blueprint**. Some prose below still uses the pre-ADR-0004 vocabulary; repo links are current.
 
 ---
 
@@ -28,7 +30,7 @@ Confirm the following before initiating a DERA engagement:
 
 2. **Scope definition** (1h) — Identify which domains are in scope. Which L1 catalogs are relevant? Which entity types will the engagement focus on?
 
-3. **Entity subset selection** (1h) — From the metamodel's 12 entity types, select the subset for this engagement. Not every engagement needs all 12. A Discovery engagement might focus on `Principle`, `ArchitecturePattern`, and `Standard`.
+3. **Entity subset selection** (1h) — From the root model's first-level entities (OpenDEAM v0.5.0 — 53 entities across L1–L5 + 2 dimensions), select the subset for this engagement. Not every engagement needs all of them. A Discovery engagement might focus on `Tenet`, `ArchitecturePattern`, and `Guardrail`.
 
 4. **Engagement style** (30m) — Choose Discovery, Blueprint, or Embedding based on scope and timeline.
 
@@ -76,12 +78,12 @@ Review at end of Week 3:
 ### Activities
 
 **2.1 — Principles catalog seeding**
-- Review `dea-catalog-principles` entries
+- Review `dea-catalog-tenets` entries
 - Select principles relevant to the engagement (typically 3–7)
 - Link each principle to the engagement's strategic objectives
 
 **2.2 — Standards catalog seeding**
-- Review `dea-catalog-standards` entries
+- Review `dea-catalog-guardrails` entries
 - Select applicable technology and architectural standards
 - Map each standard to the patterns that implement it
 
@@ -92,9 +94,9 @@ Review at end of Week 3:
 - Link patterns to the principles that motivate them
 
 **2.4 — Reference Models and other catalogs**
-- Seed domain-specific reference models from `dea-catalog-reference-models`
+- Seed domain-specific reference models from `dea-catalog-blueprints`
 - Seed metrics from `dea-catalog-metrics`
-- Seed glossary terms from `dea-catalog-glossary`
+- Seed glossary terms from `dea-catalog-concepts`
 
 **2.5 — Cross-catalog relationships**
 - Declare all cross-catalog relationships in each entity's YAML frontmatter
